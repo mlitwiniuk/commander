@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Uploaded Files</h1>
+<ul>
+    <% @uploaded_files.each do |uploaded_file| %>
+      <li>
+        <strong><%= uploaded_file.file_identifier %></strong>
+        <em>
+          <%= link_to 'Download', uploaded_file.file.url, target: :_blank %>
+          |
+          <%= link_to 'Destroy', uploaded_file, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </em>
+        <br />
+        <small><%= uploaded_file.file.url %></small>
+      </li>
+    <% end %>
+</ul>
+
+<br>
+
+<%= link_to 'New Uploaded file', new_uploaded_file_path %>
